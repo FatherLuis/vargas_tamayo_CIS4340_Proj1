@@ -19,7 +19,7 @@ public class LinkedList
     
     
     /* 
-    Method Name: getTerm()
+    Method Name: getInteger()
     Method Inputted: none
     Parameters: none
     Purpose: returns private class variable
@@ -39,7 +39,7 @@ public class LinkedList
     public LinkedList getNextLink(){return nextLL;} 
     
     /* 
-    Method Name: setTerm()
+    Method Name: setInteger()
     Method Inputted: none
     Parameters: String
     Purpose: places a new value on private variable
@@ -56,7 +56,7 @@ public class LinkedList
     Return: none
     Date:  11/13/2017
     */ 
-    public void setLinkedList(LinkedList link) {this.nextLL = link;}
+    public void setNextLL(LinkedList link) {this.nextLL = link;}
     
     
 

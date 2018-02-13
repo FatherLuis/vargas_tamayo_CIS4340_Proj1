@@ -5,10 +5,8 @@
  */
 package vargas_tamayo_cis4340_proj1;
 
-
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
+
 
 
 
@@ -46,7 +44,7 @@ public class MergeSort
             addON.setInteger(num);
 
             //CURRECT LINKED LIST SETS THE NEXT LINKED LIST VARIABLE WITH THE LINKED LIST CREATED
-            temp.setLinkedList(addON);
+            temp.setNextLL(addON);
             
             //THE NEW LINKED LIST CREATED WILL HOLD THE PLACE OF TEMP 
             temp = temp.getNextLink();
@@ -60,47 +58,74 @@ public class MergeSort
         recMerge(LinkedChain,size);
     }
     
-    public void recMerge(LinkedList curLL, int size)
+    public LinkedList recMerge(LinkedList curLL, int size)
     {
-        LinkedList LeftSet= new LinkedList();
-        LinkedList RightSet =new LinkedList();
+        //Indicates the middle
+        int mid_line = (int)Math.ceil(size/2);
         
-        LinkedList curTemp = curLL;
+        int L_Size = mid_line;
+        int R_Size = size - L_Size;
         
-        int Low_Mid = (int) size / 2 ;
-        int High_Mid = size - Low_Mid;
+        LinkedList LeftSet = null;
+        LinkedList RightSet = null;
         
+        //LeftSet.setInteger(curLL.getInteger());
+        LeftSet = curLL;
         
+        LinkedList TempLink = LeftSet;
         
+        //LeftSet.setInteger(curLL.getInteger());
         
-        LinkedList L_Temp = LeftSet;
-        
-        for(int i = 0; i < Low_Mid; i++)
+        for(int i = 0; i < mid_line; i++)
         {
+            //TempLink = TempLink.getNextLink();
             
-            L_Temp.setLinkedList(curTemp.getNextLink());
-        
-            curTemp = curTemp.getNextLink();
+            if( i + 1 == mid_line)
+            {
+                RightSet = TempLink;
+                TempLink.setNextLL(null); 
+                
+                break;
+            }
+                
+            TempLink = TempLink.getNextLink();
         }
         
-        LinkedList H_Temp = RightSet;
         
-        for(int i = High_Mid; i < size; i++)
+        if(!(L_Size < 2))
         {
+            LeftSet = recMerge(LeftSet,L_Size);   
+        }
         
+        if(!(R_Size < 2))
+        {
+            RightSet = recMerge(RightSet,L_Size);
         
         }
         
         
         
-        
-        
-    
-    
     }
     
     
-    
-    
-    
 }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+  
+    
+    
+    
+    
+    
+
