@@ -5,6 +5,7 @@
  */
 package vargas_tamayo_cis4340_proj1;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -105,6 +106,67 @@ public class MergeSort
         
         
         
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    private void initSort(LinkedList Left_Set,int L_Size, LinkedList Right_Set, int R_Size)
+    {
+        LinkedList MainLink = new LinkedList();
+        
+        LinkedList temp_Link1 = Left_Set;
+        
+        LinkedList temp_Link2 = Right_Set;
+        
+        LinkedList temp_Link3 = MainLink;
+        
+        while(!(L_Size ==0) && !(R_Size == 0)  )
+        {
+            if(!temp_Link1.equals(null) && !temp_Link2.equals(null))
+            {
+                if(temp_Link1.getInteger() < temp_Link2.getInteger())
+                {
+                    temp_Link3.setInteger(temp_Link1.getInteger());
+                    temp_Link3.setNextLL(new LinkedList());
+
+
+                    temp_Link3 = temp_Link3.getNextLink();
+                    temp_Link1 = temp_Link1.getNextLink();
+                }
+                else if(temp_Link1.getInteger() > temp_Link2.getInteger())
+                {
+                    temp_Link3.setInteger(temp_Link2.getInteger());
+                    temp_Link3.setNextLL(new LinkedList());
+
+
+                    temp_Link3 = temp_Link3.getNextLink();
+                    temp_Link2 = temp_Link2.getNextLink();
+                }
+                else if(temp_Link1.getInteger() == temp_Link2.getInteger())
+                {
+                    MainLink.setInteger(temp_Link1.getInteger());
+                    temp_Link3.setNextLL(new LinkedList());
+                    temp_Link3 = temp_Link3.getNextLink();
+
+                    MainLink.setInteger(temp_Link2.getInteger());
+                    temp_Link3.setNextLL(new LinkedList());
+                    temp_Link3 = temp_Link3.getNextLink();           
+                }
+            }
+        }
+        
+    
+    
+    
+    
+    
+    
     }
     
     
