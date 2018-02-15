@@ -59,19 +59,18 @@ public class MergeSort
         recMerge(LinkedChain,size);
     }
     
-    public LinkedList recMerge(LinkedList curLL, int size)
+    private void recMerge(LinkedList curLL, int size)
     {
         //Indicates the middle
-        int mid_line = (int)Math.ceil(size/2);
+        int mid_line = (int)Math.ceil(size/2.0);
         
         int L_Size = mid_line;
         int R_Size = size - L_Size;
         
-        LinkedList LeftSet = null;
+        LinkedList LeftSet = curLL;
         LinkedList RightSet = null;
         
         //LeftSet.setInteger(curLL.getInteger());
-        LeftSet = curLL;
         
         LinkedList TempLink = LeftSet;
         
@@ -89,18 +88,22 @@ public class MergeSort
                 break;
             }
                 
-            TempLink = TempLink.getNextLink();
+            if(TempLink.getNextLink() != null)
+            {
+                TempLink = TempLink.getNextLink();
+            }
+           
         }
         
         
         if(!(L_Size < 2))
         {
-            LeftSet = recMerge(LeftSet,L_Size);   
+            recMerge(LeftSet,L_Size);   
         }
         
         if(!(R_Size < 2))
         {
-            RightSet = recMerge(RightSet,L_Size);
+            recMerge(RightSet,L_Size);
         
         }
         

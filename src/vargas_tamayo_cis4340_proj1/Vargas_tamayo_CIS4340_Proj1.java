@@ -9,6 +9,7 @@ public class Vargas_tamayo_CIS4340_Proj1
     {
      
         MergeSort MS = new MergeSort(10);
+        MS.initMerge();
         
         
     }
