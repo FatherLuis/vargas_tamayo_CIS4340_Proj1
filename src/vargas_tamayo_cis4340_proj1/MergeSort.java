@@ -36,61 +36,85 @@ public class MergeSort
         
         LinkedList temp = LinkedChain;
         
-        System.out.println("[4,1,3,2]\n");
-        
-        temp.setInteger(4);
-        temp.setNextLL(new LinkedList());
-        temp = temp.getNextLink();
-        
-        temp.setInteger(1);
-        temp.setNextLL(new LinkedList());
-        temp = temp.getNextLink();
-        
-        temp.setInteger(3);
-        temp.setNextLL(new LinkedList());
-        temp = temp.getNextLink();
-        
-        temp.setInteger(2);   
+//        System.out.println("[4,1,3,10,10,7,2,6,8,10]\n");
+//        
+//        temp.setInteger(4);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//        
+//        temp.setInteger(1);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//        
+//        temp.setInteger(3);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//        
+//        temp.setInteger(10);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//        
+//        temp.setInteger(10);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//       
+//        temp.setInteger(7);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//        
+//        temp.setInteger(2);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//        
+//        temp.setInteger(6);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();
+//       
+//        temp.setInteger(8);
+//        temp.setNextLL(new LinkedList());
+//        temp = temp.getNextLink();        
+//        
+//        temp.setInteger(10);   
        
         
         
                 
 //        //FOR LOOP IS USED TO CREATE A CHAIN OF LINK LIST AND ARE INITIALIZED WITH INTEGERS
-//        for(int i = 0; i < size; i++)
-//        {
-//            //RANDOM NUMBER GENERATED IN STORED IN THIS VARIABLE
-//            int num = rand.nextInt(100000);
-//            
-//            //NEW LINKED LIST IS CREATED AND THEN A INTEGER IS STORED
-//            LinkedList addON = new LinkedList();
-//            addON.setInteger(num);
-//
-//            //CURRECT LINKED LIST SETS THE NEXT LINKED LIST VARIABLE WITH THE LINKED LIST CREATED
-//            temp.setNextLL(addON);
-//            
-//            //THE NEW LINKED LIST CREATED WILL HOLD THE PLACE OF TEMP 
-//            temp = temp.getNextLink();
-//        }
+        for(int i = 0; i < size; i++)
+        {
+            //RANDOM NUMBER GENERATED IN STORED IN THIS VARIABLE
+            int num = rand.nextInt(100); //100000
+            
+            //NEW LINKED LIST IS CREATED AND THEN A INTEGER IS STORED
+            LinkedList addON = new LinkedList();
+            addON.setInteger(num);
+
+            //CURRECT LINKED LIST SETS THE NEXT LINKED LIST VARIABLE WITH THE LINKED LIST CREATED
+            temp.setNextLL(addON);
+            
+            //THE NEW LINKED LIST CREATED WILL HOLD THE PLACE OF TEMP 
+            temp = temp.getNextLink();
+        }
         
         
     }
     
     public void initMerge()
     {
-        LinkedList ttf = recMerge(LinkedChain,4);
+        LinkedList ttf = recMerge(LinkedChain,size);
         
   //////////////////////////////////////////////////////////////      
-        String all = "\n\n[ ";
-        
-        while(ttf != null)
-        {
-            all += ttf.getInteger() + ", ";
-            
-            ttf = ttf.getNextLink();
-        
-        }
-        
-        System.out.println(all + "] ");
+//        String all = "\n\n[ ";
+//        
+//        while(ttf != null)
+//        {
+//            all += ttf.getInteger() + " ";
+//            
+//            ttf = ttf.getNextLink();
+//        
+//        }
+//        
+//        System.out.println(all + "] ");
    //////////////////////////////////////////////////////////////     
         
     }
@@ -166,22 +190,16 @@ public class MergeSort
                 size--;
             }
            
-        }
-        
-        System.out.println("\nDID I MAKE IT HERE?");
-        System.out.print("LEFT SIDE :" + L_Size);
-        System.out.print("    RIGHT SIZE : " + R_Size);
+        }    
         
         if(L_Size >= 2)
         {
-            System.out.println("\nLEFT SIDE :" + L_Size);
             LeftSet = recMerge(LeftSet,L_Size);
             
         }
         
         if(R_Size >= 2)
         {
-            System.out.println("\nRIGHT SIZE : " + R_Size);
             RightSet = recMerge(RightSet,R_Size);
         }
         
@@ -192,8 +210,7 @@ public class MergeSort
         return MainLink;
   
     }
-    
-    
+
     
     private LinkedList initSort(LinkedList Left_Set,int L_Size, LinkedList Right_Set, int R_Size)
     {
@@ -202,52 +219,61 @@ public class MergeSort
         LinkedList temp_Link= MainLink;
         
         
-        while(L_Size !=0 && R_Size !=0  )
+        while(L_Size !=0 && R_Size !=0)
         {
-//            if(L_Size - 1 != 0 && R_Size - 1 != 0)
-//            {
-                if(Left_Set.getInteger() < Right_Set.getInteger())
+            if(Left_Set.getInteger() < Right_Set.getInteger())
+            {
+                temp_Link.setInteger(Left_Set.getInteger());
+
+                if(L_Size - 1 > 0 || R_Size > 0)
                 {
-                    temp_Link.setInteger(Left_Set.getInteger());
                     temp_Link.setNextLL(new LinkedList());
                     temp_Link= temp_Link.getNextLink();
-                    
-                    Left_Set = Left_Set.getNextLink();
-                    
-                    L_Size--;
-                    
-                }
-                else if(Left_Set.getInteger() > Right_Set.getInteger())
-                {
-                    temp_Link.setInteger(Right_Set.getInteger());
-                    temp_Link.setNextLL(new LinkedList());
-                    temp_Link = temp_Link.getNextLink();
-                    
-                    Right_Set = Right_Set.getNextLink();
-                   
-                    R_Size--;
-                    
-                }
-                else if(Left_Set.getInteger() == Right_Set.getInteger())
-                {
-                    temp_Link.setInteger(Left_Set.getInteger());
-                    temp_Link.setNextLL(new LinkedList());
-                    temp_Link = temp_Link.getNextLink();
-                    
-                    Left_Set = Left_Set.getNextLink();
-                    
-                    L_Size--;
 
-                    temp_Link.setInteger(Right_Set.getInteger());
+                    Left_Set = Left_Set.getNextLink();
+                }
+
+                L_Size--;
+
+            }
+            else if(Left_Set.getInteger() > Right_Set.getInteger())
+            {
+                temp_Link.setInteger(Right_Set.getInteger());
+
+                if(L_Size > 0 || R_Size - 1 > 0)
+                {
+                    temp_Link.setNextLL(new LinkedList());
+                    temp_Link = temp_Link.getNextLink();
+
+                    Right_Set = Right_Set.getNextLink();
+                }
+
+                R_Size--;
+
+            }
+            else if(Left_Set.getInteger() == Right_Set.getInteger())
+            {
+                temp_Link.setInteger(Left_Set.getInteger());
+
+                temp_Link.setNextLL(new LinkedList());
+                temp_Link = temp_Link.getNextLink();
+
+                Left_Set = Left_Set.getNextLink();
+
+                L_Size--;
+
+                temp_Link.setInteger(Right_Set.getInteger());
+
+                if(L_Size > 0 || R_Size - 1 > 0)
+                {
                     temp_Link.setNextLL(new LinkedList());
                     temp_Link = temp_Link.getNextLink(); 
-                    
+
                     Right_Set = Right_Set.getNextLink();
-                    
-                    R_Size--;
-                     
                 }
-//            }
+
+                R_Size--;     
+            }
         }
         
         while(L_Size != 0)
@@ -255,10 +281,10 @@ public class MergeSort
             if(L_Size - 1 == 0)
             {
                 temp_Link.setInteger(Left_Set.getInteger());
-                temp_Link.setNextLL(new LinkedList());
-                temp_Link = temp_Link.getNextLink();
+                //temp_Link.setNextLL(new LinkedList());
+                //temp_Link = temp_Link.getNextLink();
                 
-                Left_Set = Left_Set.getNextLink();
+                //Left_Set = Left_Set.getNextLink();
                 
                 L_Size--;  
             }
@@ -305,10 +331,10 @@ public class MergeSort
             if(R_Size - 1 == 0)
             {
                 temp_Link.setInteger(Right_Set.getInteger());
-                temp_Link.setNextLL(new LinkedList());
-                temp_Link = temp_Link.getNextLink();
+                //temp_Link.setNextLL(new LinkedList());
+                //temp_Link = temp_Link.getNextLink();
                 
-                Right_Set = Right_Set.getNextLink();
+                //Right_Set = Right_Set.getNextLink();
                 
                 R_Size--;  
             }
