@@ -5,28 +5,39 @@
  */
 package vargas_tamayo_cis4340_proj1;
 
-import java.util.HashSet;
-import java.util.Objects;
 import java.util.Random;
-import java.util.Set;
 
 
-
-
+//Class name: 
+//Class Author: Luis E. Vargas Tamayo
+//Purpose of the class:
+//Date: 2/27/2018
+//List of changes with dates:
+//Special Notes:
 public class MergeSort 
 {
-    
     private LinkedList LinkedChain;
     private int size;
     
-    
+    //Method Name: 
+    //Purpose: 
+    //Parameter: 
+    //Method Input: 
+    //Return Value:
+    //Date: 2/27/2018
     public MergeSort(int size)
     {
         LinkedChain = new LinkedList();
         this.size = size;
         setUp();
     }
-    
+
+    //Method Name: 
+    //Purpose: 
+    //Parameter: 
+    //Method Input: 
+    //Return Value:
+    //Date: 2/27/2018    
     private void setUp()
     {
         
@@ -98,7 +109,13 @@ public class MergeSort
         
         
     }
-    
+
+    //Method Name: 
+    //Purpose: 
+    //Parameter: 
+    //Method Input: 
+    //Return Value:
+    //Date: 2/27/2018    
     public void initMerge()
     {
         LinkedList ttf = recMerge(LinkedChain,size);
@@ -118,7 +135,13 @@ public class MergeSort
    //////////////////////////////////////////////////////////////     
         
     }
-    
+
+    //Method Name: 
+    //Purpose: 
+    //Parameter: 
+    //Method Input: 
+    //Return Value:
+    //Date: 2/27/2018    
     private LinkedList recMerge(LinkedList curLL, int size)
     {
         LinkedList MainLink = null;
@@ -211,7 +234,12 @@ public class MergeSort
   
     }
 
-    
+    //Method Name: 
+    //Purpose: 
+    //Parameter: 
+    //Method Input: 
+    //Return Value:
+    //Date: 2/27/2018
     private LinkedList initSort(LinkedList Left_Set,int L_Size, LinkedList Right_Set, int R_Size)
     {
         LinkedList MainLink = new LinkedList();
@@ -382,6 +410,11 @@ public class MergeSort
         
         
     }
+    
+    
+    
+    
+    
         
     
     
