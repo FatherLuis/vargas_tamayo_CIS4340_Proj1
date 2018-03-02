@@ -10,7 +10,7 @@ public class Vargas_tamayo_CIS4340_Proj1
      
         Long start = System.currentTimeMillis();
         
-        MergeSort MS = new MergeSort(10000000);
+        MergeSort3 MS = new MergeSort3(100);
         MS.initMerge();
         
         Long end = System.currentTimeMillis();
