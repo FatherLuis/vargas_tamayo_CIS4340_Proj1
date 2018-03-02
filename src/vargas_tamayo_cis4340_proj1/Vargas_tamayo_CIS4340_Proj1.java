@@ -8,8 +8,14 @@ public class Vargas_tamayo_CIS4340_Proj1
     public static void main(String[] args) 
     {
      
-        MergeSort3 MS = new MergeSort3(10);
+        Long start = System.currentTimeMillis();
+        
+        MergeSort MS = new MergeSort(10000000);
         MS.initMerge();
+        
+        Long end = System.currentTimeMillis();
+        
+        System.out.println((end - start) + " nanoseconds");
         
         
     }
