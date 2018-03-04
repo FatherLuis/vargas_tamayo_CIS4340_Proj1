@@ -5,19 +5,16 @@
  */
 package vargas_tamayo_cis4340_proj1;
 
-/**
- *
- * @author fathe
- */
+//Class name: LinkedList
+//Class Author: Luis E. Vargas Tamayo
+//Purpose of the class: Basic used of data structure linkedlist
+//Date: 11/13/2017
+//List of changes with dates: none
+//Special Notes: none
 public class LinkedList 
 {
-
     private int Integer;
     private LinkedList  nextLL;
-    
-    
-    
-    
     /* 
     Method Name: getInteger()
     Method Inputted: none
